@@ -10,5 +10,14 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.provider :virtualbox do |vb|
     vb.gui = true
+    vb.customize "pre-boot", [
+      "storageattach", :id,
+      "--storagectl", "SATAController",
+      "--port", "1",
+      "--device", "0",
+      "--type", "dvddrive",
+      "--medium", "/Applications/VirtualBox.app/Contents/MacOS/VBoxGuestAdditions.iso",
+      #"--medium", "emptydrive"
+      ]
   end
 end
