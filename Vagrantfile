@@ -7,8 +7,13 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.network :forwarded_port, guest:4444, host:4444
   config.vm.network :private_network, ip: "192.168.33.10"
   config.vm.provision "shell", path: "script.sh"
+  config.vm.synced_folder "C:/Users/swapnil.tilaye/cms_scte_blackouts", "/srv/host/home/cms_scte_blackouts"
 
   config.vm.provider :virtualbox do |vb|
     vb.gui = true
   end
+  config.vm.provider "virtualbox" do |vb|
+    vb.customize ["modifyvm", :id, "--memory", "2048"]
+  end
+
 end
