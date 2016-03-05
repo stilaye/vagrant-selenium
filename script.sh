@@ -9,6 +9,13 @@ sudo apt-get update
 sudo apt-get -y install fluxbox xorg unzip vim default-jre rungetty firefox
 
 #=========================================================
+echo "Install guest additions ..."
+#=========================================================
+sudo mkdir /media/cdrom
+sudo mount /dev/cdrom /media/cdrom
+sudo /media/cdrom/VBoxLinuxAdditions.run force
+
+#=========================================================
 echo "Set autologin for the Vagrant user..."
 #=========================================================
 sudo sed -i '$ d' /etc/init/tty1.conf
@@ -92,4 +99,4 @@ echo "ok"
 #=========================================================
 echo "Reboot the VM"
 #=========================================================
-sudo reboot
+sudo shutdown -h now
