@@ -6,6 +6,8 @@ echo "Install the packages..."
 #=========================================================
 sudo apt-get update
 sudo apt-get -y install fluxbox xorg unzip vim default-jre rungetty firefox
+sudo apt-get install -y python3-pip 
+sudo pip3 install behave
 
 #=========================================================
 echo "Install guest additions ..."
